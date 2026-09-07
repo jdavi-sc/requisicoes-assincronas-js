@@ -5,7 +5,7 @@ btnXHR.addEventListener("click", () => {
 
     const requisicao = new XMLHttpRequest(); // cria um objeto responsável por realizar a requisição.
 
-    requisicao.open("GET", "./data/usuarios.json"); // configuramos a requisição. (Faça uma requisição HTTP GET para usuarios.json)
+    requisicao.open("GET", "data/usuarios.json"); // configuramos a requisição. (Faça uma requisição HTTP GET para usuarios.json)
 
     requisicao.send(); //Enviamos a requisicao
     requisicao.onload = () => { // Funcao que sera executada após a requisicao terminar
