@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "José Davi",
+        "idade": 20,
+        "curso": "Análise e Desenvolvimento de Sistemas"
+    },
+    {
+        "id":2,
+        "nome": "Jõao Lucas",
+        "idade": 18,
+        "curso": "Engenharia de Software"
+    },
+    {
+        "id": 3,
+        "nome": "Andrei Silva",
+        "idade": 20,
+        "curso": "Ciência da Computação"
+    },
+    {
+        "id": 4,
+        "nome": "Danilo Gomes",
+        "idade": 20,
+        "curso": "Segurança da Informação"
+    }
+]
