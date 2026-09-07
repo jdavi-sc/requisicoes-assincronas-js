@@ -1,5 +1,5 @@
 const btnXHR = document.querySelector("#btn-xhr");
-const resultado = document.querySelector("#resultado");
+const resultadoXHR = document.querySelector("#resultado");
 
 btnXHR.addEventListener("click", () => {
 
