@@ -1,28 +1,53 @@
 const btnXHR = document.querySelector("#btn-xhr");
-const resultadoXHR = document.querySelector("#resultado");
+const resultadoXhr = document.querySelector("#resultado");
 
 btnXHR.addEventListener("click", () => {
 
-    const requisicao = new XMLHttpRequest(); // cria um objeto responsável por realizar a requisição.
+    const requisicao = new XMLHttpRequest();
 
-    requisicao.open("GET", "data/usuarios.json"); // configuramos a requisição. (Faça uma requisição HTTP GET para usuarios.json)
+    requisicao.open("GET", "data/usuarios.json");
 
-    requisicao.send(); //Enviamos a requisicao
-    requisicao.onload = () => { // Funcao que sera executada após a requisicao terminar
-        if (requisicao.status === 200) {
-            const usuarios = JSON.parse(requisicao.responseText);
-            resultado.innerHTML = "";
-            usuarios.forEach(usuario => {
-                resultado.innerHTML += `
-                    <p>
-                        <strong>${usuario.nome}</strong><br>
-                        Idade: ${usuario.idade}<br>
-                        Curso: ${usuario.curso}
-                    </p>  
-                `;
-            });
-        } else {
-            resultado.textContent = "Erro ao buscar os usuários.";
+    requisicao.onreadystatechange = () => {
+
+        // Estado 3: resposta sendo recebida
+        if (requisicao.readyState === 3) {
+
+            resultado.textContent = "Recebendo dados...";
+
         }
+
+        // Estado 4: requisição concluída
+        if (requisicao.readyState === 4) {
+
+            // Status HTTP 200 = requisição realizada com sucesso
+            if (requisicao.status === 200) {
+
+                const usuarios = JSON.parse(requisicao.responseText);
+
+                resultado.innerHTML = "";
+
+                usuarios.forEach(usuario => {
+
+                    resultadoXhr.innerHTML += `
+                        <p>
+                            <strong>${usuario.nome}</strong><br>
+                            Idade: ${usuario.idade}<br>
+                            Curso: ${usuario.curso}
+                        </p>
+                    `;
+
+                });
+
+            } else {
+
+                resultado.textContent = "Erro ao buscar os usuários.";
+
+            }
+
+        }
+
     };
+
+    requisicao.send();
+
 });
